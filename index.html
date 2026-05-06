@@ -126,10 +126,62 @@
   backface-visibility: hidden;
   transform: translateZ(0);
 }
+    #lightbox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+}
+
+#lightbox img{
+  max-width:80%;
+  max-height:80%;
+  border-radius:10px;
+}
+
+.close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:30px;
+  cursor:pointer;
+}
+
+.arrow{
+  position:absolute;
+  top:50%;
+  font-size:40px;
+  cursor:pointer;
+  user-select:none;
+}
+
+.left{
+  left:30px;
+}
+
+.right{
+  right:30px;
+}
   </style>
 </head>
 
 <body>
+<div id="lightbox">
+  <span class="close" onclick="closeImage()">✖</span>
+
+  <span class="arrow left" onclick="prevImage()">❮</span>
+
+  <img id="lightbox-img">
+
+  <span class="arrow right" onclick="nextImage()">❯</span>
+</div>
+  
 <nav class="navbar">
   <div class="logo">RAYAN BOUTHOUR</div>
   <ul>
@@ -179,60 +231,60 @@
   <h2>My Art</h2>
 
  <div class="gallery">
-   <img src="art1.jpg" loading="lazy">
-   <img src="art2.jpg" loading="lazy">
-   <img src="art3.jpg" loading="lazy">
-   <img src="art4.jpg" loading="lazy">
-   <img src="art5.jpg" loading="lazy">
-   <img src="art6.jpg" loading="lazy">
-   <img src="art7.jpg" loading="lazy">
-   <img src="art8.jpg" loading="lazy">
-   <img src="art9.jpg" loading="lazy">
-   <img src="art10.jpg" loading="lazy">
-   <img src="art11.jpg" loading="lazy">
-   <img src="art12.jpg" loading="lazy">
-   <img src="art13.jpg" loading="lazy">
-   <img src="art14.jpg" loading="lazy">
-   <img src="art15.jpg" loading="lazy">
-   <img src="art16.jpg" loading="lazy">
-   <img src="art17.jpg" loading="lazy">
-   <img src="art18.jpg" loading="lazy">
-   <img src="art19.jpg" loading="lazy">
-   <img src="art20.jpg" loading="lazy">
-   <img src="art21.jpg" loading="lazy">
-   <img src="art22.jpg" loading="lazy">
-   <img src="art23.jpg" loading="lazy">
-   <img src="art24.jpg" loading="lazy">
-   <img src="art25.jpg" loading="lazy">
-   <img src="art26.jpg" loading="lazy">
-   <img src="art27.jpg" loading="lazy">
-   <img src="art28.jpg" loading="lazy">
-   <img src="art29.jpg" loading="lazy">
-   <img src="art30.jpg" loading="lazy">
-   <img src="art31.jpg" loading="lazy">
-   <img src="art32.jpg" loading="lazy">
-   <img src="art33.jpg" loading="lazy">
-   <img src="art34.jpg" loading="lazy">
-   <img src="art35.jpg" loading="lazy">
-   <img src="art36.jpg" loading="lazy">
-   <img src="art37.jpg" loading="lazy">
-   <img src="art38.jpg" loading="lazy">
-   <img src="art39.jpg" loading="lazy">
-   <img src="art40.jpg" loading="lazy">
-   <img src="art41.jpg" loading="lazy">
-   <img src="art42.jpg" loading="lazy">
-   <img src="art43.jpg" loading="lazy">
-   <img src="art44.jpg" loading="lazy">
-   <img src="art45.jpg" loading="lazy">
-   <img src="art46.jpg" loading="lazy">
-   <img src="art47.jpg" loading="lazy">
-   <img src="art48.jpg" loading="lazy">
-   <img src="art49.jpg" loading="lazy">
-   <img src="art50.jpg" loading="lazy">
-   <img src="art51.jpg" loading="lazy">
-   <img src="art52.jpg" loading="lazy">
-   <img src="art53.jpg" loading="lazy">
-   <img src="art54.jpg" loading="lazy">
+   <img src="art1.jpg" loading="lazy" onclick="openImage(0)">
+   <img src="art2.jpg" loading="lazy" onclick="openImage(1)">
+   <img src="art3.jpg" loading="lazy" onclick="openImage(2)">
+   <img src="art4.jpg" loading="lazy" onclick="openImage(3)">
+   <img src="art5.jpg" loading="lazy" onclick="openImage(4)">
+   <img src="art6.jpg" loading="lazy" onclick="openImage(5)">
+   <img src="art7.jpg" loading="lazy" onclick="openImage(6)">
+   <img src="art8.jpg" loading="lazy" onclick="openImage(7)">
+   <img src="art9.jpg" loading="lazy" onclick="openImage(8)">
+   <img src="art10.jpg" loading="lazy" onclick="openImage(9)">
+   <img src="art11.jpg" loading="lazy" onclick="openImage(10)">
+   <img src="art12.jpg" loading="lazy" onclick="openImage(11)">
+   <img src="art13.jpg" loading="lazy" onclick="openImage(12)">
+   <img src="art14.jpg" loading="lazy" onclick="openImage(13)">
+   <img src="art15.jpg" loading="lazy" onclick="openImage(14)">
+   <img src="art16.jpg" loading="lazy" onclick="openImage(15)">
+   <img src="art17.jpg" loading="lazy" onclick="openImage(16)">
+   <img src="art18.jpg" loading="lazy" onclick="openImage(17)">
+   <img src="art19.jpg" loading="lazy" onclick="openImage(18)">
+   <img src="art20.jpg" loading="lazy" onclick="openImage(19)">
+   <img src="art21.jpg" loading="lazy" onclick="openImage(20)">
+   <img src="art22.jpg" loading="lazy" onclick="openImage(21)">
+   <img src="art23.jpg" loading="lazy" onclick="openImage(22)">
+   <img src="art24.jpg" loading="lazy" onclick="openImage(23)">
+   <img src="art25.jpg" loading="lazy" onclick="openImage(24)">
+   <img src="art26.jpg" loading="lazy" onclick="openImage(25)">
+   <img src="art27.jpg" loading="lazy" onclick="openImage(26)">
+   <img src="art28.jpg" loading="lazy" onclick="openImage(27)">
+   <img src="art29.jpg" loading="lazy" onclick="openImage(28)">
+   <img src="art30.jpg" loading="lazy" onclick="openImage(29)">
+   <img src="art31.jpg" loading="lazy" onclick="openImage(30)">
+   <img src="art32.jpg" loading="lazy" onclick="openImage(31)">
+   <img src="art33.jpg" loading="lazy" onclick="openImage(32)">
+   <img src="art34.jpg" loading="lazy" onclick="openImage(33)">
+   <img src="art35.jpg" loading="lazy" onclick="openImage(34)">
+   <img src="art36.jpg" loading="lazy" onclick="openImage(35)">
+   <img src="art37.jpg" loading="lazy" onclick="openImage(36)">
+   <img src="art38.jpg" loading="lazy" onclick="openImage(37)">
+   <img src="art39.jpg" loading="lazy" onclick="openImage(38)">
+   <img src="art40.jpg" loading="lazy" onclick="openImage(39)">
+   <img src="art41.jpg" loading="lazy" onclick="openImage(40)">
+   <img src="art42.jpg" loading="lazy" onclick="openImage(41)">
+   <img src="art43.jpg" loading="lazy" onclick="openImage(42)">
+   <img src="art44.jpg" loading="lazy" onclick="openImage(43)">
+   <img src="art45.jpg" loading="lazy" onclick="openImage(44)">
+   <img src="art46.jpg" loading="lazy" onclick="openImage(45)">
+   <img src="art47.jpg" loading="lazy" onclick="openImage(46)">
+   <img src="art48.jpg" loading="lazy" onclick="openImage(47)">
+   <img src="art49.jpg" loading="lazy" onclick="openImage(48)">
+   <img src="art50.jpg" loading="lazy" onclick="openImage(49)">
+   <img src="art51.jpg" loading="lazy" onclick="openImage(50)">
+   <img src="art52.jpg" loading="lazy" onclick="openImage(51)">
+   <img src="art53.jpg" loading="lazy" onclick="openImage(52)">
+   <img src="art54.jpg" loading="lazy" onclick="openImage(53)">
 </div>
   </section>
 
@@ -244,6 +296,85 @@
       rayan.bouthour.gsrd@gmail.com
     </p>
   </section>
+<script>
+  let images = [
+    "art1.jpg",
+    "art2.jpg",
+    "art3.jpg",
+    "art4.jpg",
+    "art5.jpg",
+    "art6.jpg",
+    "art7.jpg",
+    "art8.jpg",
+    "art9.jpg",
+    "art10.jpg",
+    "art11.jpg",
+    "art12.jpg",
+    "art13.jpg",
+    "art14.jpg",
+    "art15.jpg",
+    "art16.jpg",
+    "art17.jpg",
+    "art18.jpg",
+    "art19.jpg",
+    "art20.jpg",
+    "art21.jpg",
+    "art22.jpg",
+    "art23.jpg",
+    "art24.jpg",
+    "art25.jpg",
+    "art26.jpg",
+    "art27.jpg",
+    "art28.jpg",
+    "art29.jpg",
+    "art30.jpg",
+    "art31.jpg",
+    "art32.jpg",
+    "art33.jpg",
+    "art34.jpg",
+    "art35.jpg",
+    "art36.jpg",
+    "art37.jpg",
+    "art38.jpg",
+    "art39.jpg",
+    "art40.jpg",
+    "art41.jpg",
+    "art42.jpg",
+    "art43.jpg",
+    "art44.jpg",
+    "art45.jpg",
+    "art46.jpg",
+    "art47.jpg",
+    "art48.jpg",
+    "art49.jpg",
+    "art50.jpg",
+    "art51.jpg",
+    "art52.jpg",
+    "art53.jpg",
+    "art54.jpg"
+  ];
 
+  let currentIndex = 0;
+
+  function openImage(index){
+    currentIndex = index;
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = images[currentIndex];
+  }
+
+  function closeImage(){
+    document.getElementById("lightbox").style.display = "none";
+  }
+
+  function nextImage(){
+    currentIndex = (currentIndex + 1) % images.length;
+    document.getElementById("lightbox-img").src = images[currentIndex];
+  }
+
+  function prevImage(){
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    document.getElementById("lightbox-img").src = images[currentIndex];
+  }
+</script>
 </body>
 </html>
