@@ -168,6 +168,35 @@
 .right{
   right:30px;
 }
+    .menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  #nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(5,8,22,0.95);
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  #nav-links.active {
+    display: flex;
+  }
+}
   </style>
 </head>
 
@@ -184,6 +213,9 @@
   
 <nav class="navbar">
   <div class="logo">RAYAN BOUTHOUR</div>
+  
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  
   <ul>
     <li><a href="#">Home</a></li>
     <li><a href="#about">About</a></li>
@@ -374,6 +406,9 @@
   function prevImage(){
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     document.getElementById("lightbox-img").src = images[currentIndex];
+  }
+  function toggleMenu() {
+    document.getElementById("nav-links").classList.toggle("active");
   }
 </script>
 </body>
