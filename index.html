@@ -7,6 +7,47 @@
 
   <style>
     body{
+  .navbar{
+  position:sticky;
+  top:0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 50px;
+  background:rgba(5,8,22,0.7);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+  color:#58a6ff;
+  letter-spacing:3px;
+}
+
+.navbar ul{
+  display:flex;
+  list-style:none;
+  gap:30px;
+}
+
+.navbar a{
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.navbar a:hover{
+  color:#58a6ff;
+}
+
+.cv-btn{
+  border:1px solid #58a6ff;
+  padding:10px 20px;
+  border-radius:12px;
+  box-shadow:0 0 15px rgba(88,166,255,0.3);
+}
       margin:0;
       background: linear-gradient(to bottom, #050816, #0f172a);
       color:white;
@@ -81,7 +122,21 @@
 </head>
 
 <body>
+<nav class="navbar">
+  <div class="logo">RAYAN</div>
 
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#learning">Learning</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <a class="cv-btn" href="#">
+    Download CV
+  </a>
+</nav>
   <section class="hero">
     <img src="photo.jpg" alt="Rayan">
 
@@ -93,7 +148,8 @@
   </section>
 
   <section>
-    <h2>About Me</h2>
+    <section id="about">
+  <h2>About Me</h2>
 
     <p class="about">
       Passionate about manga art, Japanese culture and interactive digital experiences, I'am building a creative path between visual storytelling, 
@@ -103,6 +159,7 @@
   </section>
 
   <section>
+  <section id="learning">
   <h2>Currently Learning</h2>
 
   <p class="about">
@@ -111,7 +168,8 @@
 </section>
 
   <section>
-    <h2>My Art</h2>
+    <section id="gallery">
+  <h2>My Art</h2>
 
  <div class="gallery">
    <img src="art1.jpg">
@@ -127,7 +185,7 @@
   </section>
 
   <section class="contact">
-    <h2>Contact</h2>
+ <section id="contact" class="contact">
 
     <p>
       rayan.bouthour.gsrd@gmail.com
