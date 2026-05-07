@@ -63,6 +63,65 @@
       text-transform: uppercase;
     }
 
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .language-selector {
+      position: relative;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: 0.25s;
+    }
+
+    .lang-btn:hover {
+      border-color: var(--blue);
+      box-shadow: 0 0 12px var(--blue-dim);
+    }
+
+    .lang-dropdown {
+      position: absolute;
+      top: 45px;
+      right: 0;
+      background: rgba(25,24,21,0.98);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      min-width: 110px;
+      z-index: 2000;
+      backdrop-filter: blur(12px);
+    }
+
+    .lang-dropdown button {
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 12px;
+      cursor: pointer;
+      text-align: left;
+      transition: 0.25s;
+    }
+
+    .lang-dropdown button:hover {
+      background: var(--blue);
+      color: black;
+    }
+
+    .lang-dropdown.open {
+      display: flex;
+    }
+    
     .navbar ul {
       display: flex;
       list-style: none;
@@ -629,16 +688,26 @@
 <body>
 
 <nav class="navbar" role="navigation" aria-label="Main navigation">
-  <div class="logo">Rayan Bouthour</div>
-
+  <div class="logo-area">
+    <div class="logo">Rayan Bouthour</div>
+    <div class="language-selector">
+      <button class="lang-btn" onclick="toggleLanguages()">
+        🇺🇸
+      </button>
+      <div class="lang-dropdown" id="lang-dropdown">
+        <button onclick="setLanguage('en')">🇺🇸 EN</button>
+        <button onclick="setLanguage('fr')">🇫🇷 FR</button>
+      </div>
+    </div>
+  </div>
   <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">☰</button>
 
   <ul id="nav-links" role="list">
-    <li><a href="#top">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#learning">Skills</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#top" id="nav-home">Home</a></li>
+    <li><a href="#about" id="nav-about">About</a></li>
+    <li><a href="#learning" id="nav-skills">Skills</a></li>
+    <li><a href="#gallery" id="nav-gallery">Gallery</a></li>
+    <li><a href="#contact" id="nav-contact">Contact</a></li>
   </ul>
 
   <a class="cv-btn navbar-link" href="#" aria-label="Download CV">Download CV</a>
@@ -661,7 +730,9 @@
     <img src="photo.jpg" alt="Portrait of Mohamed Rayan Bouthour" width="160" height="200">
   </div>
   <h1>Mohamed Rayan Bouthour</h1>
-  <p class="subtitle">Creative Developer in Progress</p>
+  <p class="subtitle" id="hero-subtitle">
+    Creative Developer in Progress
+  </p>
   <div class="hero-tags">
     <span class="tag">Manga Artist</span>
     <span class="tag">Web Developer</span>
@@ -672,8 +743,8 @@
 
 <!-- About -->
 <section id="about">
-  <p class="section-title">About Me</p>
-  <p class="about-text">
+  <p class="section-title" id="about-title">About Me</p>
+  <p class="about-text" id="about-text">
     Passionate about manga art, Japanese culture and interactive digital experiences, I'm building
     a creative path between visual storytelling, gaming and web development.
     Through drawing, self-learning and digital creation, I aim to design immersive worlds
@@ -683,7 +754,7 @@
 
 <!-- Learning -->
 <section id="learning">
-  <p class="section-title">Currently Learning</p>
+  <p class="section-title" id="learning-title">Currently Learning</p>
   <div class="skills-grid">
     <span class="skill-pill">HTML &amp; CSS</span>
     <span class="skill-pill">Creative Coding</span>
@@ -696,7 +767,7 @@
 
 <!-- Gallery -->
 <section id="gallery">
-  <p class="section-title">My Art</p>
+  <p class="section-title" id="gallery-title">My Art</p>
 
   <div class="gallery-filters">
     <button class="filter-btn active" data-filter="all" onclick="setFilter('all', this)">All</button>
@@ -711,7 +782,7 @@
 
 <!-- Contact -->
 <section id="contact">
-  <p class="section-title">Contact</p>
+  <p class="section-title" id="contact-title">Contact</p>
   <div class="contact-card">
     <a class="email-link" href="mailto:rayan.bouthour.gsrd@gmail.com">
       rayan.bouthour.gsrd@gmail.com
@@ -861,6 +932,86 @@
   }, {passive: true});
 
   renderGallery(1);
+  function toggleLanguages() {
+    document.getElementById("lang-dropdown")
+      .classList.toggle("open");
+  }
+
+  function setLanguage(lang) {
+
+    if (lang === "fr") {
+
+      document.documentElement.lang = "fr";
+
+      document.getElementById("nav-home").textContent = "Accueil";
+      document.getElementById("nav-about").textContent = "À propos";
+      document.getElementById("nav-skills").textContent = "Compétences";
+      document.getElementById("nav-gallery").textContent = "Galerie";
+      document.getElementById("nav-contact").textContent = "Contact";
+
+      document.getElementById("hero-subtitle").textContent =
+        "Développeur créatif en progression";
+
+      document.getElementById("about-title").textContent =
+        "À propos de moi";
+
+      document.getElementById("learning-title").textContent =
+        "En apprentissage";
+
+      document.getElementById("gallery-title").textContent =
+        "Mes créations";
+
+      document.getElementById("contact-title").textContent =
+        "Contact";
+
+      document.getElementById("about-text").textContent =
+        "Passionné par l’art manga, la culture japonaise et les expériences numériques interactives, je construis un parcours créatif entre narration visuelle, jeu vidéo et développement web. À travers le dessin, l’auto-apprentissage et la création digitale, je cherche à concevoir des univers immersifs mêlant créativité, émotion et technologie.";
+
+    }
+
+    else {
+
+      document.documentElement.lang = "en";
+
+      document.getElementById("nav-home").textContent = "Home";
+      document.getElementById("nav-about").textContent = "About";
+      document.getElementById("nav-skills").textContent = "Skills";
+      document.getElementById("nav-gallery").textContent = "Gallery";
+      document.getElementById("nav-contact").textContent = "Contact";
+
+      document.getElementById("hero-subtitle").textContent =
+        "Creative Developer in Progress";
+
+      document.getElementById("about-title").textContent =
+        "About Me";
+
+      document.getElementById("learning-title").textContent =
+        "Currently Learning";
+
+      document.getElementById("gallery-title").textContent =
+        "My Art";
+
+      document.getElementById("contact-title").textContent =
+        "Contact";
+
+      document.getElementById("about-text").textContent =
+        "Passionate about manga art, Japanese culture and interactive digital experiences, I'm building a creative path between visual storytelling, gaming and web development. Through drawing, self-learning and digital creation, I aim to design immersive worlds that combine creativity, emotion and technology.";
+    }
+
+    document.getElementById("lang-dropdown")
+      .classList.remove("open");
+  }
+
+  document.addEventListener("click", function(e) {
+
+    const selector = document.querySelector(".language-selector");
+
+    if (!selector.contains(e.target)) {
+      document.getElementById("lang-dropdown")
+        .classList.remove("open");
+    }
+
+  });
 </script>
 
 </body>
