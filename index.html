@@ -954,6 +954,7 @@
   }
 
   function setLanguage(lang) {
+    const langIcon = document.getElementById("lang-icon");
     const langBtn = document.getElementById("lang-icon");
     if (lang === "fr") {
 
@@ -982,8 +983,8 @@
 
       document.getElementById("about-text").textContent =
         "Passionné par l’art manga, la culture japonaise et les expériences numériques interactives, je construis un parcours créatif entre narration visuelle, jeu vidéo et développement web. À travers le dessin, l’auto-apprentissage et la création digitale, je cherche à concevoir des univers immersifs mêlant créativité, émotion et technologie.";
-      langFlag.src = "fr.png";
-      langFlag.alt = "Français";
+      langIcon.src = "fr.png";
+      langIcon.alt = "Français";
     }
 
     else {
@@ -1013,8 +1014,8 @@
 
       document.getElementById("about-text").textContent =
         "Passionate about manga art, Japanese culture and interactive digital experiences, I'm building a creative path between visual storytelling, gaming and web development. Through drawing, self-learning and digital creation, I aim to design immersive worlds that combine creativity, emotion and technology.";
-      langFlag.src = "us.png";
-      langFlag.alt = "English";
+      langIcon.src = "us.png";
+      langIcon.alt = "English";
     }
 
   
