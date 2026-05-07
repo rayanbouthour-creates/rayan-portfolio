@@ -692,7 +692,7 @@
     <div class="logo">Rayan Bouthour</div>
     <div class="language-selector">
       <button class="lang-btn" id="lang-btn" onclick="toggleLanguages()">
-        🇺🇸
+        <img id="lang-icon" src="us.png" alt="language" />
       </button>
       <div class="lang-dropdown" id="lang-dropdown">
         <button onclick="setLanguage('en')">🇺🇸 EN</button>
@@ -938,7 +938,7 @@
   }
 
   function setLanguage(lang) {
-    const langBtn = document.getElementById("lang-btn");
+    const langBtn = document.getElementById("lang-flag");
     if (lang === "fr") {
 
       document.documentElement.lang = "fr";
@@ -966,7 +966,8 @@
 
       document.getElementById("about-text").textContent =
         "Passionné par l’art manga, la culture japonaise et les expériences numériques interactives, je construis un parcours créatif entre narration visuelle, jeu vidéo et développement web. À travers le dessin, l’auto-apprentissage et la création digitale, je cherche à concevoir des univers immersifs mêlant créativité, émotion et technologie.";
-      langBtn.textContent = "🇫🇷";
+      langFlag.src = "fr.png";
+      langFlag.alt = "Français";
     }
 
     else {
@@ -996,7 +997,8 @@
 
       document.getElementById("about-text").textContent =
         "Passionate about manga art, Japanese culture and interactive digital experiences, I'm building a creative path between visual storytelling, gaming and web development. Through drawing, self-learning and digital creation, I aim to design immersive worlds that combine creativity, emotion and technology.";
-      langBtn.textContent = "🇺🇸";
+      langFlag.src = "us.png";
+      langFlag.alt = "English";
     }
 
   
