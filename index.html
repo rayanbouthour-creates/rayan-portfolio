@@ -1081,7 +1081,12 @@
   });
 
   reveal.addEventListener("mouseleave", () => {
+    mangaImg.style.transition = "none";
     mangaImg.style.clipPath = `circle(0px at 50% 50%)`;
+
+    setTimeout(() => {
+      mangaImg.style.transition = "clip-path 0.05s linear";
+    }, 10);
   });
 </script>
 
