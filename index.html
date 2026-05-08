@@ -698,6 +698,34 @@
       .gallery { grid-template-columns: 1fr; }
       .hero h1 { font-size: 22px; }
     }
+    .reveal {
+      position: relative;
+      display: inline-block;
+      width: 160px;
+      height: 200px;
+    }
+
+    .reveal img {
+      width: 160px;
+      height: 200px;
+      border-radius: 50% / 40%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+/* image normale en dessous */
+    .base-img {
+      z-index: 1;
+    }
+
+/* image manga au-dessus mais masquée */
+    .manga-img {
+      z-index: 2;
+      clip-path: circle(0px at 50% 50%);
+      transition: clip-path 0.05s linear;
+    }
   </style>
 </head>
 
@@ -744,8 +772,9 @@
 
 <!-- Hero -->
 <section class="hero" id="top">
-  <div class="avatar-wrapper">
-    <img src="photo2.png" alt="Portrait of Mohamed Rayan Bouthour" width="160" height="200">
+  <div class="avatar-wrapper reveal">
+    <img class="base-img" src="photo2.png" alt="Portrait" width="160" height="200">
+    <img class="manga-img" src="photo2-manga.png" alt="Portrait manga" width="160" height="200">
   </div>
   <h1>Mohamed Rayan Bouthour</h1>
   <p class="subtitle" id="hero-subtitle">
@@ -1038,6 +1067,21 @@
         .classList.remove("open");
     }
 
+  });
+  const reveal = document.querySelector(".reveal");
+  const mangaImg = document.querySelector(".manga-img");
+
+  reveal.addEventListener("mousemove", (e) => {
+    const rect = reveal.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    mangaImg.style.clipPath = `circle(60px at ${x}px ${y}px)`;
+  });
+
+  reveal.addEventListener("mouseleave", () => {
+    mangaImg.style.clipPath = `circle(0px at 50% 50%)`;
   });
 </script>
 
