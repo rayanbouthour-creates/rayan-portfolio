@@ -1071,6 +1071,20 @@
   const reveal = document.querySelector(".reveal");
   const mangaImg = document.querySelector(".manga-img");
 
+  reveal.addEventListener("mouseenter", (e) => {
+    const rect = reveal.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    mangaImg.style.transition = "none";
+    mangaImg.style.clipPath = `circle(35px at ${x}px ${y}px)`;
+
+    setTimeout(() => {
+      mangaImg.style.transition = "clip-path 0.05s linear";
+    }, 10);
+  });
+
   reveal.addEventListener("mousemove", (e) => {
     const rect = reveal.getBoundingClientRect();
 
