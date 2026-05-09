@@ -752,6 +752,11 @@
     <li><a href="#learning" id="nav-skills">Skills</a></li>
     <li><a href="#gallery" id="nav-gallery">Gallery</a></li>
     <li><a href="#contact" id="nav-contact">Contact</a></li>
+    <li class="mobile-cv">
+      <a id="mobile-cv-btn" href="cv.png" download>
+        Download CV
+      </a>
+    </li>
   </ul>
 
   <a id="cv-btn" class="cv-btn navbar-link" href="cv.png" download aria-label="Download CV">
@@ -999,6 +1004,8 @@
       document.getElementById("nav-skills").textContent = "Compétences";
       document.getElementById("nav-gallery").textContent = "Galerie";
       document.getElementById("nav-contact").textContent = "Contact";
+      document.getElementById("mobile-cv-btn").textContent =
+        "Télécharger CV";
 
       document.getElementById("hero-subtitle").textContent =
         "Développeur Créatif en Progression";
@@ -1031,6 +1038,8 @@
       document.getElementById("nav-skills").textContent = "Skills";
       document.getElementById("nav-gallery").textContent = "Gallery";
       document.getElementById("nav-contact").textContent = "Contact";
+      document.getElementById("mobile-cv-btn").textContent =
+        "Download CV";
 
       document.getElementById("hero-subtitle").textContent =
         "Creative Developer in Progress";
@@ -1102,6 +1111,36 @@
       mangaImg.style.transition = "clip-path 0.05s linear";
     }, 10);
   });
+  .mobile-cv {
+    padding: 18px 20px 8px;
+  }
+
+  #mobile-cv-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 44px;
+
+    border: 1px solid var(--blue);
+    border-radius: 10px;
+
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+
+    background: var(--blue-dim);
+
+    transition: 0.25s;
+  }
+
+  #mobile-cv-btn:hover {
+    background: var(--blue);
+    color: white;
+    box-shadow: 0 0 18px var(--blue-glow);
+  }
 </script>
 
 </body>
