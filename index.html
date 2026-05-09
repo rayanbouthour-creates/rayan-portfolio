@@ -726,6 +726,36 @@
       clip-path: circle(0px at 50% 50%);
       transition: clip-path 0.05s linear;
     }
+    .mobile-cv {
+      padding: 18px 20px 8px;
+    }
+
+    #mobile-cv-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 100%;
+      min-height: 44px;
+
+      border: 1px solid var(--blue);
+      border-radius: 10px;
+
+      color: var(--blue);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+
+      background: var(--blue-dim);
+
+      transition: 0.25s;
+    }
+
+    #mobile-cv-btn:hover {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 0 18px var(--blue-glow);
+    }
   </style>
 </head>
 
@@ -1111,36 +1141,6 @@
       mangaImg.style.transition = "clip-path 0.05s linear";
     }, 10);
   });
-  .mobile-cv {
-    padding: 18px 20px 8px;
-  }
-
-  #mobile-cv-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-    min-height: 44px;
-
-    border: 1px solid var(--blue);
-    border-radius: 10px;
-
-    color: var(--blue);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-
-    background: var(--blue-dim);
-
-    transition: 0.25s;
-  }
-
-  #mobile-cv-btn:hover {
-    background: var(--blue);
-    color: white;
-    box-shadow: 0 0 18px var(--blue-glow);
-  }
 </script>
 
 </body>
