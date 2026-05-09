@@ -629,16 +629,20 @@
 
     #scroll-top.visible { opacity: 1; pointer-events: all; }
     #scroll-top:hover { transform: scale(1.1); }
-
+    
+    @media (min-width: 769px) {
+      .mobile-cv {
+        display: none;
+      }
+    }
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      .mobile-cv {
-        display: block;
-      }
       .navbar { padding: 14px 20px; }
       .menu-toggle { display: block; }
       .cv-btn { display: none !important; }
-
+      .mobile-cv {
+        display: block;
+      }
       #nav-links {
         display: none;
         flex-direction: column;
@@ -730,7 +734,6 @@
       transition: clip-path 0.05s linear;
     }
     .mobile-cv {
-      display: none;
       padding: 18px 20px 8px;
     }
 
